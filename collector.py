@@ -31,7 +31,6 @@ while True:
     ram = psutil.virtual_memory()
     cpu_usage = psutil.cpu_percent(interval=1)
 
-    import os
     os.system('cls||clear')
 
     print(f"\n---------------------------------------------")

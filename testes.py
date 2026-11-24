@@ -2,6 +2,7 @@ import psutil
 import platform
 import subprocess
 import json
+import os
 
 def get_gpu():
     result = subprocess.run(
@@ -14,8 +15,6 @@ def get_gpu():
 
     return json.loads(result.stdout)
 
-gpus = get_gpu()
-
 def identify_gpu(name):
     name = name.lower()
 
@@ -27,3 +26,26 @@ def identify_gpu(name):
         return "Intel"
     else:
         return -1
+
+gpus = get_gpu()
+
+if len(gpus) == 0:
+    print("No GPU found...")
+elif len(gpus) == 1:
+    print(f"Your GPU is from {identify_gpu(gpus["Name"])}")    
+else:
+    
+    j = -1
+    while j < 0 or j >= len(gpus):
+        i = 1
+        os.system('cls||clear')
+        print(f"GPUS found: ")
+        for gpu in gpus:
+            print(f"{i}. {identify_gpu(gpu["Name"])}")
+            i += 1
+        try:
+            j = int(input("Choose GPU: ")) - 1
+        except:
+            pass
+
+    print(f"GPU Selected: {gpus[j]["Name"]}")
