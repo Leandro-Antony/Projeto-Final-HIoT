@@ -1,6 +1,7 @@
 import psutil
 import platform
 import subprocess
+import os
 
 def get_gpu():
     result = subprocess.run(
@@ -29,6 +30,10 @@ os_name = platform.system()
 while True:
     ram = psutil.virtual_memory()
     cpu_usage = psutil.cpu_percent(interval=1)
+
+    import os
+    os.system('cls||clear')
+
     print(f"\n---------------------------------------------")
     print(f"Uso da cpu: {cpu_usage}%")
     print(f"Uso % da RAM: {(ram.percent/1073741824):.2f}%")
