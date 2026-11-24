@@ -35,8 +35,8 @@ while True:
 
     print(f"\n---------------------------------------------")
     print(f"Uso da cpu: {cpu_usage}%")
-    print(f"Uso % da RAM: {(ram.percent/1073741824):.2f}%")
+    print(f"Uso % da RAM: {ram.percent:.2f}%")
     print(f"Total de RAM: {(ram.total/1073741824):.2f}GB")
     print(f"Uso da RAM: {(ram.used/1073741824):.2f}GB")
-    print(f"Livre de RAM: {(ram.free/1073741824):.2f}GB")
+    print(f"Livre de RAM: {((ram.total-ram.used)/1073741824):.2f}GB")
     print(f"---------------------------------------------")
