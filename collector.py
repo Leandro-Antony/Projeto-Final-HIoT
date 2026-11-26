@@ -244,7 +244,7 @@ try:
         # Exibição das métricas da GPU.
         if selected_gpu is not None:
 
-            print(f"GPU: {selected_gpu['Name']}")
+            print(f"GPU: {selected_gpu['Name']} - {selected_gpu['Vendor']}")
 
             if gpu_data is not None:
 
